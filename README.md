@@ -65,8 +65,25 @@ npm install express cors typescript ts-node @types/node @types/express @types/co
    - `index.ts`: Archivo principal del servidor
 
 3. **Configuración**
-   - `tsconfig.json`: Configuración de TypeScript
-   - `package.json`: Scripts y dependencias
+   - `tsconfig.json`: Configuración de TypeScript con `target: "es6"`, `module: "commonjs"`, `outDir: "./dist"`, `rootDir: "./src"`, `strict: true`, `esModuleInterop: true`, `skipLibCheck: true`, `forceConsistentCasingInFileNames: true`, `include: ["src/**/*.ts"]`, y `exclude: ["node_modules"]`.
+   - `package.json`: Scripts y dependencias actualizados.
+     ```json
+     {
+       "name": "back",
+       "version": "1.0.0",
+       "main": "dist/index.js",
+       "scripts": {
+         "test": "echo \"Error: no test specified\" && exit 1",
+         "start": "node dist/index.js",
+         "dev": "ts-node src/index.ts",
+         "build": "tsc",
+         "watch": "tsc -w"
+       },
+       "keywords": [],
+       "author": "",
+       "description": ""
+     }
+     ```
 
 4. **Correcciones de TypeScript**
    - Se corrigió el error de tipos en el controlador de libros
